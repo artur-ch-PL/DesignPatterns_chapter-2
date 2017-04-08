@@ -5,7 +5,7 @@ import java.util.Observable;
 
 import com.chapter2._ach.Observable.Match;
 
-public class ScoreDisplay implements Observer, Display {
+public class ScoreDisplay implements Observer, IDisplay {
 	Observable observable;
 	private String score;
 	
@@ -16,7 +16,7 @@ public class ScoreDisplay implements Observer, Display {
 	
 	@Override
 	public void display() {
-			System.out.println("Score display:" + score);
+			System.out.println("<score display>\t" + score);
 	}
 
 	@Override

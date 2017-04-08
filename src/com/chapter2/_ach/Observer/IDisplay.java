@@ -1,5 +1,5 @@
 package com.chapter2._ach.Observer;
 
-public interface Display {
+public interface IDisplay {
 	void display();
 }

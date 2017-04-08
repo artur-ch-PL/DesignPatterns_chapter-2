@@ -2,7 +2,7 @@ package com.chapter2._ach.Observable;
 
 import java.util.ArrayList;
 
-import com.chapter2._ach.Observer.Observer;
+import com.chapter2._ach.Observer.IObserver;
 /***
  * 
  * @author Artur
@@ -12,17 +12,17 @@ import com.chapter2._ach.Observer.Observer;
 
 public class Observable {
 	private boolean changed;
-	private ArrayList<Observer> observers;
+	private ArrayList<IObserver> observers;
 	
 	public Observable() {
-		observers = new ArrayList<Observer>();
+		observers = new ArrayList<IObserver>();
 	}
 	
-	void addObsever(Observer o){
+	void addObsever(IObserver o){
 		observers.add(o);
 	};
 	
-	void deleteObserver(Observer o){
+	void deleteObserver(IObserver o){
 		int i = observers.indexOf(o);
 		if (i >= 0){
 			observers.remove(i);
@@ -32,7 +32,7 @@ public class Observable {
 	void notifyObservers(){
 		if(changed){
 			for(int i=0; i < observers.size(); i++){
-				Observer observer = (Observer) observers.get(i);
+				IObserver observer = (IObserver) observers.get(i);
 				observer.update();
 			}
 		}

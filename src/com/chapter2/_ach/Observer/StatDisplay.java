@@ -5,7 +5,7 @@ import java.util.Observer;
 
 import com.chapter2._ach.Observable.Match;
 
-public class StatDisplay implements Observer, Display {
+public class StatDisplay implements Observer, IDisplay {
 	Observable observable;
 	private String stats;
 	
@@ -16,7 +16,7 @@ public class StatDisplay implements Observer, Display {
 
 	@Override
 	public void display() {
-		System.out.println("Stat display:" + stats);
+		System.out.println("<stat display>\t" + stats);
 	}
 
 	@Override

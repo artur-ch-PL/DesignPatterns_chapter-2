@@ -1,12 +1,15 @@
 package com.chapter2._ach.Observer;
+import java.util.Date;
 import java.util.Observable;
 import java.util.Observer;
 
+import javax.print.attribute.DateTimeSyntax;
+
 import com.chapter2._ach.Observable.Match;
 
-public class LastActionDisplay implements Observer, Display {
+public class LastActionDisplay implements Observer, IDisplay {
 	Observable observable;
-	private String last_action;
+	private String lastAction;
 	
 	public LastActionDisplay(Observable observable){
 		this.observable = observable;
@@ -15,14 +18,14 @@ public class LastActionDisplay implements Observer, Display {
 	
 	@Override
 	public void display() {
-		System.out.println("<timestamp>: "+last_action);
+		System.out.println("<action>\t" + lastAction);
 	}
 
 	@Override
 	public void update(Observable o, Object arg) {
 		if (o instanceof Match){
 			Match match = (Match) o;
-			this.last_action = match.getLastComment();
+			this.lastAction = match.getLastComment();
 			display();
 		}
 		
